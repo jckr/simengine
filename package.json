@@ -4,8 +4,35 @@
   "description": "An engine for simulation and automata, with bindings in React",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:prod": "microbundle --define process.env.NODE_ENV=production --sourcemap false --jsx React.createElement --output dist --tsconfig ./tsconfig.json",
+    "build:dev": "microbundle --define process.env.NODE_ENV=development --sourcemap true --jsx React.createElement --output dist --tsconfig ./tsconfig.json",
+    "test": "jest --silent",
+    "test:coverage": "jest --collect-coverage --silent",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jckr/simengine"
   },
   "author": "Jerome Cukier",
-  "license": "ISC"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.22",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-webpack5": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@testing-library/react": "^14.2.1",
+    "jest": "^29.7.0",
+    "microbundle": "^0.15.1",
+    "react": "^18.2.0",
+    "storybook": "^8.0.0",
+    "typescript": "^5.4.2"
+  }
 }
