@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { ReactEngine } from '../src/';
+import { ReactSimEngine } from '../src/';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/ReactEngine',
-  component: ReactEngine,
+  title: 'Example/ReactSimEngine',
+  component: ReactSimEngine,
   parameters: {
   },
   tags: ['autodocs'],
   argTypes: {
   },
   args: {  },
-} satisfies Meta<typeof ReactEngine>;
+} satisfies Meta<typeof ReactSimEngine>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

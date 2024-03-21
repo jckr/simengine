@@ -1,2 +1,2 @@
-export {Engine} from './lib';
-export {ReactEngine, useSimEngine} from './components';
+export {SimEngine} from './lib';
+export {ReactSimEngine, useSimEngine} from './components';

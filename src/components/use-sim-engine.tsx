@@ -1,13 +1,13 @@
 import {useCallback, useEffect, useRef} from 'react';
-import { EngineParams } from '../lib/types';
-import { Engine } from '..';
+import { SimEngineParams } from '../lib/types';
+import { SimEngine } from '..';
 
-export function useSimEngine<T extends any>(simEngineParams: EngineParams<T>) {
-    const simEngineRef = useRef<Engine<T> | null>(null);
+export function useSimEngine<T extends any>(simEngineParams: SimEngineParams<T>) {
+    const simEngineRef = useRef<SimEngine<T> | null>(null);
 
     useEffect(() => {
         if (simEngineRef.current === null) {
-            simEngineRef.current = new Engine(simEngineParams);
+            simEngineRef.current = new SimEngine(simEngineParams);
         }
 
         return () => {
