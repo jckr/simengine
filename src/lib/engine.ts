@@ -1,3 +1,4 @@
+import {EngineParams} from './types';
 enum status {
     playing,
     paused,
@@ -23,13 +24,17 @@ export class Engine<T extends any> {
         onUpdate = state => {},
         startTick = 0,
 
-    } : {endTick?: number, frameRate?: number, initialState: T, onTick?: (previousState: T) => T, onUpdate?: (state: T) => void, startTick?: number} ) {
+    } : EngineParams<T> ) {
         this.initialState = this.state = initialState;
         this.onTick = onTick;
         this.onUpdate = onUpdate;
         this.endTick = endTick;
         this.frameRate = frameRate;
         this.startTick = this.tick = startTick;
+    }
+
+    getState() {
+        return this.state;
     }
 
     loop(time: number) {
@@ -72,5 +77,9 @@ export class Engine<T extends any> {
     
     stop() {
         this.status = status.stopped;
+    }
+
+    destroy() {
+        this.stop();
     }
 }

@@ -1,15 +1,20 @@
 
 import React, { useState } from 'react';
 import { Engine } from '..';
+import { useSimEngine } from './use-sim-engine';
 export function ReactEngine() {
-    const engineRef = React.useRef<Engine<number> | null>(null);
-    const [counter, setCounter] = useState<number>(0);
-    React.useEffect(() => {
-        if (engineRef.current === null) {
-            engineRef.current = new Engine<number>({initialState: 0, onTick: counter => counter + 1, onUpdate: setCounter});
-            engineRef.current.play();
-        }
-    }, []);
 
-    return <div className="react-engine">{counter}</div>
+    const [counter, setCounter] = useState<number>(0);
+    const {play, stop, reset} = useSimEngine<number>({
+        initialState: 0,
+        onTick: (state: number) => {return state + 1;},
+        onUpdate: (state:number) => {setCounter(state);},
+    })
+
+    return (<><div className="react-engine">{counter}</div>
+    <button onClick={() => play()}>Play</button>
+    <button onClick={() => stop()}>Stop</button>
+    <button onClick={() => reset()}>Reset</button>
+    
+    </>)
 } 

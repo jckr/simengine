@@ -8,7 +8,7 @@
     "build:dev": "microbundle --define process.env.NODE_ENV=development --sourcemap true --jsx React.createElement --output dist --tsconfig ./tsconfig.json",
     "test": "jest --silent",
     "test:coverage": "jest --collect-coverage --silent",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 1234",
     "build-storybook": "storybook build"
   },
   "repository": {
